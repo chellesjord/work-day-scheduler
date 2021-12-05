@@ -10,11 +10,24 @@ var five = document.getElementById("17");
 var pastTime = document.getElementsByClassName("past");
 var presentTime = document.getElementsByClassName("present");
 var futureTime = document.getElementsByClassName("future");
+var timeBlock = document.getElementsByClassName("timeBlock");
 var time = moment().format("H");
 
 //append to date to p
 var currentDay = moment().format("MMMM Do");
 document.getElementById("date").innerHTML = currentDay;
+
+//localStorage
+$(".saveBtn").click(function (e) {
+    e.preventDefault();
+    var eventText = $(this).siblings(".scheduleText").val();
+    var eventTime = $(this).parent().attr("id");
+    console.log(eventTime, eventText);
+    localStorage.setItem(eventTime, eventText);
+})
+
+
+//$("#9pm .scheduledText").val(localStorage.getItem());
 
 //color past, present, future
 if (time > 17) {
