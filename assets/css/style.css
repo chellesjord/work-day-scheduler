@@ -10,7 +10,7 @@ textarea{
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  padding: 0px;
 }
 
 .jumbotron {
@@ -68,4 +68,13 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.list-group {
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  width: auto;
 }
