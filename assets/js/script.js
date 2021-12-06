@@ -1,4 +1,4 @@
-var nine = document.getElementById("9");
+var nine = document.getElementById("9a");
 var ten = document.getElementById("10");
 var eleven = document.getElementById("11");
 var twelve = document.getElementById("12");
@@ -18,18 +18,40 @@ var currentDay = moment().format("MMMM Do");
 document.getElementById("date").innerHTML = currentDay;
 
 //localStorage
+var saveTasks = function () {
 $(".saveBtn").click(function (e) {
     e.preventDefault();
     var eventText = $(this).siblings(".scheduleText").val();
     var eventTime = $(this).parent().attr("id");
-    console.log(eventTime, eventText);
-    localStorage.setItem(eventTime, eventText);
-})
+    var timeText = [eventTime, eventText];
+    console.log(timeText);
+    localStorage.setItem("task", JSON.stringify(timeText));
+});
+};
 
+var loadTasks = function () {
+   var savedTasks = localStorage.getItem("task");
 
-//$("#9pm .scheduledText").val(localStorage.getItem());
+   //if there are no tasks, set tasks to empty array and return out of the function
+   if (!savedTasks) {
+       return false;
+   }
+   //else, load up saved tasks
+   
+   console.log("Saved tasks found!");
+
+   //parse into array of objects
+   savedTasks = JSON.parse(savedTasks);
+
+   //loop through savedTasks array
+   for (var i = 0; i < savedTasks.length; i++) {
+       //pass each task object into the createTaskEl() function
+       console.log(savedTasks[i]);
+   }
+};
 
 //color past, present, future
+var timeVerify = function () {
 if (time > 17) {
     five.classList.add("past");
     four.classList.add("past");
@@ -137,3 +159,8 @@ if (time > 17) {
     nine.classList.add("future");
     console.log(time);
 };
+};
+
+saveTasks()
+timeVerify()
+loadTasks()
