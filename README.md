@@ -9,6 +9,6 @@ When the user refreshs the page, the saved events will continue to show.
 
 Link to site: https://chellesjord.github.io/work-day-scheduler/
 
-![](.\assets\wds-preview.gif)
+![screenshot](.\assets\wds-preview.gif)
 
 HTML, CSS, JAVASCRIPT, JQUERY, AND MOMENT used.
